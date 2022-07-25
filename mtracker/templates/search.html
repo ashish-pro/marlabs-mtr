@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./static/css/search_style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">
+                    <img src="./static/img/mTracker.png">
+                </a>
+                <a href="#" data-target="mobile-side-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="./home-create-task.html">Create</a></li>
+                    <li class="active"><a href="./search.html">Search</a></li>
+                    <li><a href="./task-feedbacks.html">Feedbacks</a></li>
+                    <li><a href="./hr-profile.html">Profile</a></li>
+                </ul>
+            </div>
+        </nav> -->
+        {% extends 'base.html' %}
+        {% block body %}
+        <!-- <ul class="sidenav" id="mobile-side-nav">
+            <li><a href="./home-create-task.html">Create</a></li>
+            <li class="active"><a href="./search.html">Search</a></li>
+            <li><a href="#">Feedbacks</a></li>
+            <li><a href="#">profile</a></li>
+        </ul>
+    </div> -->
+    <center>
+        <div class="search-tab-container">
+            <center>
+                <div class="form-group">
+                    {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                </div>
+            </center>
+            <!-- <div class="search-bar">
+                <div class="row">
+                    <div class="input-field col l3 m5 s12">
+                        <input placeholder="Type employee id..." id="emp-id" type="text" class="validate">
+                        <label for="emp-id">Employee ID</label>
+                    </div>
+                    <div class="input-field col l3 m5 s12">
+                        <input placeholder="Type employee name..." id="emp-name" type="text" class="validate">
+                        <label for="emp-name">Employee Name</label>
+                    </div>
+                    <div class="input-field col l4 m7 s12">
+                        <input placeholder="Type task name..." id="task-name" type="text" class="validate">
+                        <label for="task-name">Task Name</label>
+                    </div>
+                    <div class="input-field col l2 m3 s8">
+                        <button type='submit' name='btn_search' id="task-search-btn"
+                            class='col s12 btn waves-effect'>Search</button>
+                    </div>
+                </div>
+            </div> -->
+            <div class="display-results">
+                <div class="row">
+                    <div id="admin" class="col s12">
+                        <div class="card material-table">
+                            <div class="table-header">
+                                <form action="{% url 'searchresult' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="col-md-6 mb-4">
+                                        <form class="form-inline md-form mr-auto">
+                                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                                            <button class="btn btn-unique btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+                                        </form>
+                                  
+                                      </div>
+                            </form>
+                            </div>
+                            <table class="responsive-table" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Emp ID</th>
+                                        <th>Name</th>
+                                        <th>Task</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for data in taskData %}
+                                    <tr>
+                                        <td>{{data.empid}}</td>
+                                        <td>{{data.empname}}</td>
+                                        <td>{{data.taskname}}</td>
+                                        <td>{{data.duedate}}</td>
+                                        <td>{{data.taskstatus}}</td>
+                                        <td>
+                                            <a href="/search/updatetask/{{ data.id }}"><button name='btn_update' id="2373773ds2"
+                                                class='btn waves-effect btn_update'>Update</button></a>
+                                        </td>
+                                        <td>
+                                            <form action="/search/deletetask/{{data.id}}" method="post">
+                                                {% csrf_token %}
+                                            <button  type="submit"class='btn waves-effect btn_update'>Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/static/js/search.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+{% endblock %}
+<!-- </body>
+
+</html> -->

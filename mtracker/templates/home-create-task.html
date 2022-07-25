@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="./static/css/home-create-task_style.css">
+    <link rel="stylesheet" href="./static/css/jquery.datetimepicker.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">
+                    <img src="./static/img/mTracker.png">
+                </a>
+                <a href="#" data-target="mobile-side-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="active"><a href="./home-create-task.html">Create</a></li>
+                    <li><a href="./search.html">Search</a></li>
+                    <li><a href="./task-feedbacks.html">Feedbacks</a></li>
+                    <li><a href="./hr-profile.html">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-side-nav">
+            <li class="active"><a href="#">Create</a></li>
+            <li><a href="./search.html">Search</a></li>
+            <li><a href="./task-feedbacks.html">Feedbacks</a></li>
+            <li><a href="./hr-profile.html">profile</a></li>
+        </ul>
+    </div> -->
+{% extends "base.html" %}
+{% block body %}
+    <div class="create-task-container">
+        <div class="form-group">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <center>
+                <h5 class="create-task-title">Create Task</h5>
+            </center>
+            <form class="col l12 s12 offset-m0 offset-l2" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                        <input placeholder="Type employee id..." id="emp-id" type="text" class="validate" name="empid">
+                        <label for="emp-id">Employee ID</label>
+                    </div>
+                    <div class="input-field col l4 s12">
+                        <input placeholder="Type employee name..." id="emp-name" type="text" class="validate" name="empname">
+                        <label for="emp-name">Employee Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l8 s12">
+                        <input placeholder="Type employee email..." id="emp-email" type="text" class="validate" name="empemail">
+                        <label for="emp-email">Employee Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l3 s12">
+                        <select id="task-name" name="task-option">
+                            <option value="" selected>Select task name</option>
+                            <option value="IT">IT</option>
+                            <option value="HR">HR</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <label>Task name</label>
+                    </div>
+                    <div class="input-field col l8 s12">
+                        <textarea disabled id="task-name-manual" id="task-name-manual" class="materialize-textarea" name="taskname"></textarea>
+                        <label for="task-name-manual">Type task name...</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                        <label>Due Date</label>
+                        <input placeholder="Select Due Date" type="text" class="datepicker" name="date" required>
+                    </div>
+                    <div class="input-field col l4 s12">
+                        <select id="task-status" name="option">
+                            <option value="pending" selected>Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <label>Task Status</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l8 s12">
+                        <textarea placeholder="Who is organizing the event?" id="summary"
+                            class="materialize-textarea" name="tasksummary"></textarea>
+                        <label for="summary">Task Summary</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l3 m5 s12">
+                        <button type='submit' name='btn_submit' id="task-submit-btn"
+                            class='col s12 btn btn-large waves-effect'>Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./static/js/home.js"></script>
+    <script src="./static/js/jquery.datetimepicker.full.min.js"></script>
+
+{% endblock %}
+<!-- </body>
+
+</html> -->

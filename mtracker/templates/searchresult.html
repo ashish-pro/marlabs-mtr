@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+        {% block body %}
+    <center>
+                <div class="row">
+                    <div id="admin" class="col s12">
+                        <div class="card material-table">
+                            <table class="responsive-table" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Emp ID</th>
+                                        <th>Name</th>
+                                        <th>Task</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for data in finalData %}
+                                    <tr>
+                                        <td>{{data.empid}}</td>
+                                        <td>{{data.empname}}</td>
+                                        <td>{{data.taskname}}</td>
+                                        <td>{{data.duedate}}</td>
+                                        <td>{{data.taskstatus}}</td>
+                                        <td>
+                                            <a href="/search/updatetask/{{ data.id }}"><button name='btn_update' id="2373773ds2"
+                                                class='btn waves-effect btn_update'>Update</button></a>
+                                        </td>
+                                        <td>
+                                            <form action="/search/deletetask/{{data.id}}" method="post">
+                                                {% csrf_token %}
+                                            <button  type="submit"class='btn waves-effect btn_update'>Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    </center>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/static/js/search.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+{% endblock %}

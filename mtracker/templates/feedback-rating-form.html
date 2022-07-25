@@ -1,0 +1,153 @@
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+
+<!-- <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title> -->
+  {% extends "base.html "%}
+  {% block body %}
+  <style>
+    .feedback {
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+      margin: 0% 10%;
+      padding: 15px 10px 10px 20px;
+      /* display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items:center; */
+    }
+
+    .survey-hr {
+      margin: 10px 0;
+      border: .5px solid #ddd;
+    }
+
+    .task-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    li>span {
+      font-style: italic;
+      color: #504DFF;
+      padding: 5px;
+    }
+
+    .task-details>li {
+      padding: 5px;
+    }
+
+    label {
+      color: #504DFF;
+      font-weight: 600;
+
+    }
+
+    .star-rating {
+      padding: 15px;
+      font-size: 20px;
+    }
+
+    input {
+      margin: 0px 5px 0px 20px;
+    }
+
+    .brand-logo {
+      background-color: #504DFF;
+      padding: 15px;
+    }
+
+    .employee-info,
+    .hr-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="feedback">
+    <div class="top">
+      <a href="#!" class="brand-logo">
+        <img src="/static/img/mTracker.png">
+      </a>
+      <p>Dear Employee,<br>
+        The task/query that you have asked to HR team has been resolved.
+      <div>
+        <ul class="task-details">
+          <div class="employee-info">
+            <li>Employee Name: <span>Vijay Babu</span></li>
+            <li>Employee ID: <span>876112</span></li>
+            <li>Email ID: <span>vijay.babu@marlabs.com</span></li>
+          </div>
+          <hr>
+          <div class="hr-info">
+            <li>Task/Query: <span>About the PF account kndkan csdcnkzm jaslaskalxa xkajxansxajxas xaxasxajsnxkaxa xsajxnaxa.</span></li>
+            <li>HR Name: <span>Thulasi</span></li>
+            <li>HR Employee ID: <span>288821</span></li>
+          </div>
+          <hr>
+          <div>Summary: <ul>
+              <li><span>summaries with date and time will be here(Date time)</span></li>
+              <li><span>summaries with date and time will be here(Date time)</span></li>
+              <li><span>summaries with date and time will be here(Date time)</span></li>
+            </ul>
+          </div>
+          <div>Status: <li><span>Completed</span></li></div>
+        </ul>
+      </div>
+      <h4>Please rate your experience with HR for the following parameters</h4>
+    </div>
+    <form method="post" action="#action-url">
+      <label>1. Your overall experience with us ?</label><br><br>
+      <span class="star-rating">
+        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+      </span>
+
+      <div class="clear"></div>
+      <hr class="survey-hr">
+      <label>2. Friendliness and courtesy shown to you while contacting us?</label><br><br>
+      <span class="star-rating">
+        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+      </span>
+      <div class="clear"></div>
+      <hr class="survey-hr">
+      <label>3. Satisfaction with the solution given by us?</label><br><br />
+      <span class="star-rating">
+        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+      </span>
+
+      <div class="clear"></div>
+      <hr class="survey-hr">
+      <label for="">4. Any Other suggestions:</label><br /><br />
+      <textarea cols="50" name="commentText" rows="5"></textarea><br>
+      <br>
+      <div class="clear"></div>
+      <input style="background: #504DFF;border-radius: 10px;color:#fff;padding:12px;border:0" type="submit"
+        value="Submit your review">
+    </form>
+  </div>
+{% endblock %}
+<!-- </body>
+
+</html> -->

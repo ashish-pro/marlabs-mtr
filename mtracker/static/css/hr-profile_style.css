@@ -1,0 +1,36 @@
+body{
+    overflow-x: hidden;
+}
+.nav-wrapper{
+    padding: 0% 15% 0% 10%;
+    background-color: #504DFF;
+    position: fixed;
+}
+
+.profile-container{
+    font-size: 17px;
+    font-family:'Arial Narrow Bold', sans-serif;
+}
+
+.profile-title{
+    font-weight: 800;
+    color: #504DFF;
+}
+
+.profile-img > img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border:2px solid #504DFF;
+    object-fit: cover;
+}
+.tasks-summary-card, .profile-details-card{
+    height: fit-content;
+    width: max-content;
+    padding: 15px 50px;
+    border-radius: 10px;
+}
+li >span{
+    font-style: italic;
+    color: #504DFF;
+}
